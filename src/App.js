@@ -44,10 +44,13 @@ function App() {
     //me da los datos en la consola en un array
     //indico [0] porque quiero ver el primer objeto del arreglo (esto depende de la API que usemos y cómo nos devuelve los datos (en este caso los devuelve en forma de array))
 
-    //ahora tengo que llamar a la función para actualizar el valor del state y que me muestre los datos en el maquetado y no en la consola
-    setPersonaje(resultado[0]);
-    //aquí llamo la variable cargando y la pongo en false una vez que tomé los datos de la API
-    setCargando(false);
+    //quiero demorar un poco la carga para que se muestre bien el spiner (en caso de que se cargue muy rápido la API y no lo podamos ver)
+    setTimeout(() => {
+      //ahora tengo que llamar a la función para actualizar el valor del state y que me muestre los datos en el maquetado y no en la consola
+      setPersonaje(resultado[0]);
+      //aquí llamo la variable cargando y la pongo en false una vez que tomé los datos de la API
+      setCargando(false);
+    }, 2500);
   };
 
   //aquí defino que voy a mostrar dependiendo del state cargando
